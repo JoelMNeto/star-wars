@@ -4,6 +4,7 @@ html {
 
 * {
   background-color: #000000;
+  font-family: Arial;
 }
 
 .menu {
@@ -20,16 +21,19 @@ html {
 }
 
 .menu-container {
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 80px;
+  width: 100%;
+  gap: 100px;
+  margin-bottom: 2rem;
 }
 
 .menu-container-link {
   font-size: 32px;
+  width: 250px;
   text-decoration: none;
+  text-align: center;
   color: #ffffff;
-  margin-right: 4rem;
   padding-bottom: 1px;
   border-bottom: solid #000000;
 }
@@ -37,6 +41,20 @@ html {
 .menu-container-link:hover {
   border-bottom: solid #fdf149;
   color: #fdf149;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-texto {
+  color: #fdf149;
+  width: 950px;
+  font-size: 32px;
+  transform: perspective(300px) rotateX(25deg);
+  text-align: justify;
 }
 
 .estrelas {
