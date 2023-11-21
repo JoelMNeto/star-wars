@@ -16,21 +16,21 @@ html {
 .menu-logo {
   margin: 0;
   padding: 0;
-  height: 250px;
-  width: 250px;
+  height: calc(300px * 0.83333333);
+  width: calc(300px * 0.83333333);;
 }
 
 .menu-container {
   justify-content: center;
   align-items: center;
-  width: 100%;
-  gap: 100px;
+  width: 100vw;
+  gap: 6.25%;
   margin-bottom: 2rem;
 }
 
 .menu-container-link {
   font-size: 32px;
-  width: 250px;
+  width: 15.625%;
   text-decoration: none;
   text-align: center;
   color: #ffffff;
@@ -51,7 +51,8 @@ html {
 
 .container-texto {
   color: #fdf149;
-  width: 950px;
+  width: 46.875%;
+  height: 24.375%;
   font-size: 32px;
   transform: perspective(300px) rotateX(25deg);
   text-align: justify;
@@ -59,6 +60,7 @@ html {
 
 .estrelas {
   position: absolute;
+  z-index: 100000;
   width: 1px;
   height: 1px;
   background: transparent;
