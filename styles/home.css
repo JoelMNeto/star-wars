@@ -58,6 +58,16 @@ html {
   text-align: justify;
 }
 
+@keyframes marquee {
+  0% { top: 0; }
+  100% { top: -100%; }
+}
+
+.texto-home {
+  overflow: scroll;
+  animation: marquee 5s linear infinite;
+}
+
 .estrelas {
   position: absolute;
   z-index: 100000;
