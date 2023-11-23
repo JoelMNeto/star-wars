@@ -71,10 +71,12 @@ textoHome.innerHTML = `Bem-vindo, pequeno padawan! Bem-vindo ao melhor site
                         personagens, planetas e veículos 
                         dos seus filmes favoritos. Navegue e divirta-se!`;
 
-function mudaTexto() {
-  const index = Number.parseInt(Math.random() * 10);
+let index = 0;                      
 
+function mudaTexto() {
   textoHome.innerHTML = curiosidades[index];
+
+  index = index === curiosidades.length ? 0 : index + 1;
 }
 
 setInterval(() => mudaTexto(), 14000);

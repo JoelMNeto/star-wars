@@ -17,8 +17,8 @@ html {
 .menu-logo {
   margin: 0;
   padding: 0;
-  height: calc(300px * 0.83333333);
-  width: calc(300px * 0.83333333);
+  height: 15.625rem;
+  width: 15.625rem;
 }
 
 .menu-container {
