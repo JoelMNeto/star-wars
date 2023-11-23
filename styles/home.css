@@ -5,6 +5,7 @@ html {
 * {
   background-color: #000000;
   font-family: Arial;
+  overflow: hidden;
 }
 
 .menu {
@@ -17,20 +18,20 @@ html {
   margin: 0;
   padding: 0;
   height: calc(300px * 0.83333333);
-  width: calc(300px * 0.83333333);;
+  width: calc(300px * 0.83333333);
 }
 
 .menu-container {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  gap: 6.25%;
+  gap: 6.25rem;
   margin-bottom: 2rem;
 }
 
 .menu-container-link {
   font-size: 32px;
-  width: 15.625%;
+  width: 15.625rem;
   text-decoration: none;
   text-align: center;
   color: #ffffff;
@@ -41,31 +42,37 @@ html {
 .menu-container-link:hover {
   border-bottom: solid #fdf149;
   color: #fdf149;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container-texto {
-  color: #fdf149;
-  width: 46.875%;
-  height: 24.375%;
-  font-size: 32px;
-  transform: perspective(300px) rotateX(25deg);
-  text-align: justify;
-}
-
-@keyframes marquee {
-  0% { top: 0; }
-  100% { top: -100%; }
+  transition: 1s;
 }
 
 .texto-home {
-  overflow: scroll;
-  animation: marquee 5s linear infinite;
+  display: flex;
+  justify-content: center;
+  min-height: 12rem;
+  max-height: 12rem;
+  color: #fdf149;
+  font-size: 28px;
+  text-align: justify;
+}
+
+.texto-home-content {
+  position: relative;
+  min-width: 60vw;
+  max-width: 60vw;
+  animation: animate-text 14s linear infinite;
+}
+
+@keyframes animate-text {
+  0% {
+    top: 200px;
+
+    transform: perspective(400px) rotateX(20deg) translateZ(50px);
+  }
+  100% {
+    top: -200px;
+
+    transform: perspective(400px) rotateX(20deg) translateZ(-180px);
+  }
 }
 
 .estrelas {
