@@ -26,7 +26,7 @@ html {
   align-items: center;
   width: 100vw;
   gap: 6.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .menu-container-link {
@@ -36,13 +36,33 @@ html {
   text-align: center;
   color: #ffffff;
   padding-bottom: 1px;
-  border-bottom: solid #000000;
 }
 
 .menu-container-link:hover {
-  border-bottom: solid #fdf149;
   color: #fdf149;
-  transition: 1s;
+}
+
+.menu-container-link-border {
+  width: 0;
+  height: 0.5px;
+  background-color: #000000;
+  margin-bottom: 1rem;
+}
+
+.menu-container-link-border-active {
+  background-color: #fdf149;
+  box-shadow: 1px 0 3px 1px #fdf149d7;
+  animation: animate-border 1s;
+  width: 15.625rem;
+}
+
+@keyframes animate-border {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 15.625rem;
+  } 
 }
 
 .texto-home {
@@ -50,7 +70,7 @@ html {
   justify-content: center;
   min-height: 12rem;
   max-height: 12rem;
-  color: #fdf149;
+  color: #fed34f; 
   font-size: 28px;
   text-align: justify;
 }
@@ -73,6 +93,22 @@ html {
 
     transform: perspective(400px) rotateX(20deg) translateZ(-180px);
   }
+}
+
+.rodape {
+  height: calc(100vh - 31.719rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.texto-rodape {
+  color: #ffffffbd;
+  font-family: Arial;
+  font-size: 12px; 
+  text-align: justify;
+  padding: 0 0 1.5rem 0.5rem;
 }
 
 .estrelas {

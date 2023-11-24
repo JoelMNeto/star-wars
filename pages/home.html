@@ -23,16 +23,49 @@
         />
 
         <div class="menu-container d-flex">
-          <a class="menu-container-link" href="./personagens.html"
-            >Personagens</a
-          >
-          <a class="menu-container-link" href="./planetas.html">Planetas</a>
-          <a class="menu-container-link" href="./veiculos.html">Veículos</a>
+          <div class="d-flex flex-column">
+            <a
+              id="linkPersonagens"
+              class="menu-container-link"
+              href="./personagens.html"
+              >Personagens</a
+            >
+            <div
+              id="linkBordaPersonagens"
+              class="menu-container-link-border"
+            ></div>
+          </div>
+
+          <div class="d-flex flex-column">
+            <a
+              id="linkPlanetas"
+              class="menu-container-link"
+              href="./planetas.html"
+              >Planetas</a
+            >
+            <div
+              id="linkBordaPlanetas"
+              class="menu-container-link-border"
+            ></div>
+          </div>
+
+          <div class="d-flex flex-column">
+            <a
+              id="linkVeiculos"
+              class="menu-container-link"
+              href="./veiculos.html"
+              >Veículos</a
+            >
+            <div
+              id="linkBordaVeiculos"
+              class="menu-container-link-border"
+            ></div>
+          </div>
         </div>
       </nav>
     </header>
 
-    <main>
+    <main  class="h-100">
       <section class="texto-home">
         <div class="texto-home-content">
           <p id="textoHome"></p>
@@ -40,7 +73,13 @@
       </section>
     </main>
 
-    <footer></footer>
+    <footer>
+      <section class="rodape">
+        <span class="texto-rodape">
+          Desenvolvido por Joel Marçola Neto e João Pedro da Silva Vieira
+        </span>
+      </section>
+    </footer>
 
     <script type="text/javascript" src="../scripts/home.js"></script>
   </body>
