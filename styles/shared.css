@@ -8,51 +8,46 @@ html {
   overflow: hidden;
 }
 
-.menu-home {
-  flex-direction: column;
-  justify-content: center;
+.menu {
+  justify-content: flex-start;
   align-items: center;
-}
-
-.menu-logo-home {
-  margin: 0;
-  padding: 0;
-  width: 15.625%;
-}
-
-.menu-container-home {
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  gap: 6.25%;
+  margin-left: 1%;
+  width: 60vw;
+  gap: 2%;
   margin-bottom: 1%;
 }
 
-.menu-container-link-home {
-  font-size: calc(100vh * 0.0357);
-  width: 15.625vw;
+.menu-logo {
+  margin: 0;
+  padding: 0;
+  width: 6.25vw;
+}
+
+.menu-container-link {
+  font-size: calc(100vh * 0.01787);
+  width: 6.25vw;
   text-decoration: none;
   text-align: center;
   color: #ffffff;
   padding-bottom: 1px;
 }
 
-.menu-container-link-home:hover {
+.menu-container-link:hover {
   color: #fdf149;
 }
 
-.menu-container-link-border-home {
+.menu-container-link-border {
   width: 0;
   height: 0.5px;
   background-color: #000000;
   margin-bottom: 1%;
 }
 
-.menu-container-link-border-home-active {
+.menu-container-link-border-active {
   background-color: #fdf149;
   box-shadow: 1px 0 3px 1px #fdf149d7;
-  animation: animate-border 1s;
-  width: 15.625vw;
+  animation: animate-border 0.8s;
+  width: 6.25vw;
 }
 
 @keyframes animate-border {
@@ -60,49 +55,40 @@ html {
     width: 0;
   }
   100% {
-    width: 15.625vw;
+    width: 6.25vw;
   }
 }
 
-.texto-home {
-  display: flex;
-  justify-content: center;
-  min-height: 25vh;
-  max-height: 25vh;
-  color: #fed34f;
-  font-size: calc(100vh * 0.0357);
-  text-align: justify;
+.menu-cotainer-pesquisa {
+  width: 40vw;
+  margin-bottom: 1%;
+  justify-content: space-around;
 }
 
-.texto-home-content {
-  position: relative;
-  min-width: 60vw;
-  max-width: 60vw;
-  animation: animate-text 14s linear infinite;
+.menu-input-pesquisa {
+  width: 30vw;
+  background-color: #000000;
+  padding: 1% !important;
+  border-radius: 5px;
+  padding: 1%;
+  border: 1px solid #fdf149;
+  color: #ffffff;
+  outline: none; 
 }
 
-@keyframes animate-text {
-  0% {
-    top: 200px;
-
-    transform: perspective(400px) rotateX(20deg) translateZ(50px);
-  }
-  100% {
-    top: -200px;
-
-    transform: perspective(400px) rotateX(20deg) translateZ(-180px);
-  }
+.menu-input-pesquisa::placeholder{
+  color: #ffffffbd;
 }
 
-.rodape-home {
-  height: calc(100vh - 64.8vh);
+.rodape {
+  height: calc(100vh - 14.8vh);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
 }
 
-.texto-rodape-home {
+.texto-rodape {
   color: #ffffffbd;
   font-family: Arial;
   font-size: calc(100vh * 0.01532);

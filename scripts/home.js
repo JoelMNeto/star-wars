@@ -71,7 +71,7 @@ textoHome.innerHTML = `Bem-vindo, pequeno padawan! Bem-vindo ao melhor site
                         personagens, planetas e veículos 
                         dos seus filmes favoritos. Navegue e divirta-se!`;
 
-let index = 0;                      
+let index = 0;
 
 function mudaTexto() {
   textoHome.innerHTML = curiosidades[index];
@@ -81,19 +81,19 @@ function mudaTexto() {
 
 setInterval(() => mudaTexto(), 14000);
 
-adicionaBordaHover('#linkPersonagens', '#linkBordaPersonagens');
-adicionaBordaHover('#linkPlanetas', '#linkBordaPlanetas');
-adicionaBordaHover('#linkVeiculos', '#linkBordaVeiculos');
+adicionaBordaHover("#linkPersonagens", "#linkBordaPersonagens");
+adicionaBordaHover("#linkPlanetas", "#linkBordaPlanetas");
+adicionaBordaHover("#linkVeiculos", "#linkBordaVeiculos");
 
 function adicionaBordaHover(link, borda) {
   let seletorLink = document.querySelector(link);
   let seletorBorda = document.querySelector(borda);
 
   seletorLink.onmouseover = () => {
-    seletorBorda.classList.add('menu-container-link-border-active');
-  }
+    seletorBorda.classList.add("menu-container-link-border-home-active");
+  };
 
   seletorLink.onmouseout = () => {
-    seletorBorda.classList.remove('menu-container-link-border-active');
-  }
+    seletorBorda.classList.remove("menu-container-link-border-home-active");
+  };
 }

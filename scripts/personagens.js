@@ -1,3 +1,8 @@
+
+
+
+
+
 adicionaBordaHover('#linkPersonagens', '#linkBordaPersonagens');
 adicionaBordaHover('#linkPlanetas', '#linkBordaPlanetas');
 adicionaBordaHover('#linkVeiculos', '#linkBordaVeiculos');
