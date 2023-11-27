@@ -1,5 +1,4 @@
-let content = [],
-  pagina = 1;
+let content = [];
 
 let listaPersonagens = document.querySelector("#listaPersonagens");
 
@@ -9,35 +8,28 @@ let listaContainer = document.querySelector("#listaContainer");
 
 getPersonagens(listaPersonagens);
 
-listaContainer.addEventListener("scroll", () => {
-  ++pagina;
-
-  if (pagina > 9) {
-    return;
-  }
-
-  getPersonagens(listaPersonagens, pagina);
-});
-
-pesquisa.addEventListener('input', (event) => {
-  let itensLista = document.querySelectorAll('ul > li');
+pesquisa.addEventListener("input", (event) => {
+  let itensLista = document.querySelectorAll("ul > li");
   let busca = event.target.value.toLowerCase();
 
   itensLista.forEach((i) => {
     texto = i.textContent.toLowerCase();
 
-    if(texto.includes(busca)) {
-      i.style.display = 'block';
+    if (texto.includes(busca)) {
+      i.style.display = "block";
       return;
     }
 
-    i.style.display = 'none';
+    i.style.display = "none";
   });
 });
 
 adicionaBordaHover("#linkPersonagens", "#linkBordaPersonagens");
 adicionaBordaHover("#linkPlanetas", "#linkBordaPlanetas");
 adicionaBordaHover("#linkVeiculos", "#linkBordaVeiculos");
+adicionaBordaHover("#linkFilmes", "#linkBordaFilmes");
+adicionaBordaHover("#linkEspecies", "#linkBordaEspecies");
+adicionaBordaHover("#linkEspaconaves", "#linkBordaEspaconaves");
 
 function adicionaBordaHover(link, borda) {
   let seletorLink = document.querySelector(link);
@@ -53,24 +45,36 @@ function adicionaBordaHover(link, borda) {
 }
 
 async function getPersonagens(seletorLista, pagina = 1) {
-  const URL = `https://swapi.dev/api/people/?page=${pagina}`;
+  const urls = [
+    "https://swapi.dev/api/people/?page=1",
+    "https://swapi.dev/api/people/?page=2",
+    "https://swapi.dev/api/people/?page=3",
+    "https://swapi.dev/api/people/?page=4",
+    "https://swapi.dev/api/people/?page=5",
+    "https://swapi.dev/api/people/?page=6",
+    "https://swapi.dev/api/people/?page=7",
+    "https://swapi.dev/api/people/?page=8",
+    "https://swapi.dev/api/people/?page=9",
+  ];
 
-  await fetch(URL)
-    .then((response) => response.json())
-    .then((json) => {
-      montaLista(seletorLista, json.results);
-      content = content.concat(json.results);
+  Promise.all(urls.map((url) => fetch(url)))
+    .then((response) => Promise.all(response.map((r) => r.json())))
+    .then((results) => {
+      results.forEach((json) => {
+        montaLista(seletorLista, json.results);
+        content = content.concat(json.results);
+      })
     });
 }
 
 function montaItemLista(textContent) {
   let li = document.createElement("li");
 
-  li.classList.add('item-lista');
-  
+  li.classList.add("item-lista");
+
   li.textContent = textContent;
 
-  li.setAttribute('id', `personagem${content.length}`);
+  li.setAttribute("id", `personagem${content.length}`);
 
   return li;
 }

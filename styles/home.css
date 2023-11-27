@@ -24,13 +24,13 @@ html {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  gap: 6.25%;
+  gap: 3.125%;
   margin-bottom: 1%;
 }
 
 .menu-container-link-home {
-  font-size: calc(100vh * 0.0357);
-  width: 15.625vw;
+  font-size: calc(100vh * 0.028);
+  width: 11.25vw;
   text-decoration: none;
   text-align: center;
   color: #ffffff;
@@ -42,17 +42,16 @@ html {
 }
 
 .menu-container-link-border-home {
-  width: 0;
+  width: 11.25vw;
   height: 0.5px;
-  background-color: #000000;
   margin-bottom: 1%;
 }
 
 .menu-container-link-border-home-active {
   background-color: #fdf149;
-  box-shadow: 1px 0 3px 1px #fdf149d7;
   animation: animate-border 1s;
-  width: 15.625vw;
+  width: 11.25vw;
+  box-shadow: 1px 0 3px 1px #fdf149d7;
 }
 
 @keyframes animate-border {
@@ -60,7 +59,7 @@ html {
     width: 0;
   }
   100% {
-    width: 15.625vw;
+    width: 11.25vw;
   }
 }
 

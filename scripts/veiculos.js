@@ -1,6 +1,9 @@
 adicionaBordaHover("#linkPersonagens", "#linkBordaPersonagens");
 adicionaBordaHover("#linkPlanetas", "#linkBordaPlanetas");
 adicionaBordaHover("#linkVeiculos", "#linkBordaVeiculos");
+adicionaBordaHover("#linkFilmes", "#linkBordaFilmes");
+adicionaBordaHover("#linkEspecies", "#linkBordaEspecies");
+adicionaBordaHover("#linkEspaconaves", "#linkBordaEspaconaves");
 
 function adicionaBordaHover(link, borda) {
   let seletorLink = document.querySelector(link);
