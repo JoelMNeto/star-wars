@@ -1,6 +1,39 @@
+let content = [],
+  pagina = 1;
+
 let listaPersonagens = document.querySelector("#listaPersonagens");
 
-montaLista(listaPersonagens);
+let pesquisa = document.querySelector("#pesquisa");
+
+let listaContainer = document.querySelector("#listaContainer");
+
+getPersonagens(listaPersonagens);
+
+listaContainer.addEventListener("scroll", () => {
+  ++pagina;
+
+  if (pagina > 9) {
+    return;
+  }
+
+  getPersonagens(listaPersonagens, pagina);
+});
+
+pesquisa.addEventListener('input', (event) => {
+  let itensLista = document.querySelectorAll('ul > li');
+  let busca = event.target.value.toLowerCase();
+
+  itensLista.forEach((i) => {
+    texto = i.textContent.toLowerCase();
+
+    if(texto.includes(busca)) {
+      i.style.display = 'block';
+      return;
+    }
+
+    i.style.display = 'none';
+  });
+});
 
 adicionaBordaHover("#linkPersonagens", "#linkBordaPersonagens");
 adicionaBordaHover("#linkPlanetas", "#linkBordaPlanetas");
@@ -19,39 +52,35 @@ function adicionaBordaHover(link, borda) {
   };
 }
 
-async function getPersonagens(pagina = 1) {
+async function getPersonagens(seletorLista, pagina = 1) {
   const URL = `https://swapi.dev/api/people/?page=${pagina}`;
 
-  let retorno = [];
-
-  await fetch(URL).then(response => response.json()).then((json) => {
-    retorno = json.results;
-  });
-
-  return retorno;
+  await fetch(URL)
+    .then((response) => response.json())
+    .then((json) => {
+      montaLista(seletorLista, json.results);
+      content = content.concat(json.results);
+    });
 }
 
-function montaItemLista() {
-  let li = document.createElement('li');
+function montaItemLista(textContent) {
+  let li = document.createElement("li");
 
   li.classList.add('item-lista');
+  
+  li.textContent = textContent;
+
+  li.setAttribute('id', `personagem${content.length}`);
 
   return li;
 }
 
-async function montaLista(seletorLista, pagina = 1) {
-  let personagens = await getPersonagens(pagina);
-  let personagensNext = await getPersonagens(++pagina);
-
-  personagens = personagens.concat(...personagensNext);
-
+async function montaLista(seletorLista, personagens) {
   if (!personagens) {
     return;
   }
 
-  personagens.forEach((personagem, i) => {
-    seletorLista.appendChild(montaItemLista());
-
-    seletorLista.childNodes[i].innerHTML = personagem.name;
+  personagens.forEach((personagem) => {
+    seletorLista.appendChild(montaItemLista(personagem.name));
   });
 }
