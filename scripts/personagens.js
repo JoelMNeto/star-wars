@@ -6,7 +6,9 @@ let pesquisa = document.querySelector("#pesquisa");
 
 let listaContainer = document.querySelector("#listaContainer");
 
-getPersonagens(listaPersonagens);
+let carregando = document.querySelector("#carregando");
+
+getPersonagens(listaPersonagens, listaContainer, carregando);
 
 pesquisa.addEventListener("input", (event) => {
   let itensLista = document.querySelectorAll("ul > li");
@@ -24,27 +26,56 @@ pesquisa.addEventListener("input", (event) => {
   });
 });
 
-adicionaBordaHover("#linkPersonagens", "#linkBordaPersonagens");
-adicionaBordaHover("#linkPlanetas", "#linkBordaPlanetas");
-adicionaBordaHover("#linkVeiculos", "#linkBordaVeiculos");
-adicionaBordaHover("#linkFilmes", "#linkBordaFilmes");
-adicionaBordaHover("#linkEspecies", "#linkBordaEspecies");
-adicionaBordaHover("#linkEspaconaves", "#linkBordaEspaconaves");
+adicionaBordaHover(
+  "#linkPersonagens",
+  "#linkBordaPersonagens",
+  "menu-container-link-border-active"
+);
 
-function adicionaBordaHover(link, borda) {
+adicionaBordaHover(
+  "#linkPlanetas",
+  "#linkBordaPlanetas",
+  "menu-container-link-border-active"
+);
+
+adicionaBordaHover(
+  "#linkVeiculos",
+  "#linkBordaVeiculos",
+  "menu-container-link-border-active"
+);
+
+adicionaBordaHover(
+  "#linkFilmes",
+  "#linkBordaFilmes",
+  "menu-container-link-border-active"
+);
+
+adicionaBordaHover(
+  "#linkEspecies",
+  "#linkBordaEspecies",
+  "menu-container-link-border-active"
+);
+
+adicionaBordaHover(
+  "#linkEspaconaves",
+  "#linkBordaEspaconaves",
+  "menu-container-link-border-active"
+);
+
+function adicionaBordaHover(link, borda, classe) {
   let seletorLink = document.querySelector(link);
   let seletorBorda = document.querySelector(borda);
 
   seletorLink.onmouseover = () => {
-    seletorBorda.classList.add("menu-container-link-border-active");
+    seletorBorda.classList.add(classe);
   };
 
   seletorLink.onmouseout = () => {
-    seletorBorda.classList.remove("menu-container-link-border-active");
+    seletorBorda.classList.remove(classe);
   };
 }
 
-async function getPersonagens(seletorLista, pagina = 1) {
+async function getPersonagens(lista, listaContainer, carregando) {
   const urls = [
     "https://swapi.dev/api/people/?page=1",
     "https://swapi.dev/api/people/?page=2",
@@ -57,26 +88,20 @@ async function getPersonagens(seletorLista, pagina = 1) {
     "https://swapi.dev/api/people/?page=9",
   ];
 
+  listaContainer.style.display = "none";
+
   Promise.all(urls.map((url) => fetch(url)))
     .then((response) => Promise.all(response.map((r) => r.json())))
     .then((results) => {
       results.forEach((json) => {
-        montaLista(seletorLista, json.results);
         content = content.concat(json.results);
-      })
+        montaLista(lista, json.results);
+      });
+    })
+    .finally(() => {
+      carregando.style.display = "none";
+      listaContainer.style.display = "block";
     });
-}
-
-function montaItemLista(textContent) {
-  let li = document.createElement("li");
-
-  li.classList.add("item-lista");
-
-  li.textContent = textContent;
-
-  li.setAttribute("id", `personagem${content.length}`);
-
-  return li;
 }
 
 async function montaLista(seletorLista, personagens) {
@@ -85,6 +110,47 @@ async function montaLista(seletorLista, personagens) {
   }
 
   personagens.forEach((personagem) => {
-    seletorLista.appendChild(montaItemLista(personagem.name));
+    montaItemLista(seletorLista, personagem.name);
   });
+}
+
+function montaItemLista(lista, textContent) {
+  let div = montaBordaItem(textContent);
+  let a = montaLinkItem(textContent);
+
+  let li = document.createElement("li");
+
+  li.classList.add("item-lista");
+
+  li.setAttribute("id", `${textContent.split(" ")[0]}`);
+
+  li.append(a, div);
+
+  lista.appendChild(li);
+
+  adicionaBordaHover(`#${a.id}`, `#${div.id}`, "item-lista-border-active");
+
+  a.onclick = () => {};
+}
+
+function montaLinkItem(textContent) {
+  let a = document.createElement("a");
+
+  a.classList.add("item-lista-link");
+
+  a.textContent = textContent;
+
+  a.setAttribute("id", `${textContent.split(" ")[0]}Link`);
+
+  return a;
+}
+
+function montaBordaItem(textContent) {
+  let div = document.createElement("div");
+
+  div.classList.add("item-lista-border");
+
+  div.setAttribute("id", `${textContent.split(" ")[0]}Border`);
+
+  return div;
 }
