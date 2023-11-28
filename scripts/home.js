@@ -68,7 +68,7 @@ let curiosidades = [
 textoHome.innerHTML = `Bem-vindo, pequeno padawan! Bem-vindo ao melhor site
                         de Star Wars que você já viu! 
                         Aqui você pode relembrar os pricipais 
-                        personagens, planetas e veículos 
+                        personagens, planetas, veículos, espaçonaves e espécies 
                         dos seus filmes favoritos. Navegue e divirta-se!`;
 
 let index = 0;

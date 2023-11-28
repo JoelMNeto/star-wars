@@ -69,7 +69,7 @@ html {
   min-height: 25vh;
   max-height: 25vh;
   color: #fed34f;
-  font-size: calc(100vh * 0.0357);
+  font-size: calc(100vh * 0.034);
   text-align: justify;
 }
 
@@ -94,7 +94,7 @@ html {
 }
 
 .rodape-home {
-  height: calc(100vh - 64.8vh);
+  height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

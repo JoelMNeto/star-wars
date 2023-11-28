@@ -122,7 +122,7 @@ function montaItemLista(lista, textContent) {
 
   li.classList.add("item-lista");
 
-  li.setAttribute("id", `${textContent.split(" ")[0]}`);
+  li.setAttribute("id", `${textContent.replaceAll(' ', '')}`);
 
   li.append(a, div);
 
@@ -140,7 +140,7 @@ function montaLinkItem(textContent) {
 
   a.textContent = textContent;
 
-  a.setAttribute("id", `${textContent.split(" ")[0]}Link`);
+  a.setAttribute("id", `${textContent.replaceAll(' ', '')}Link`);
 
   return a;
 }
@@ -150,7 +150,7 @@ function montaBordaItem(textContent) {
 
   div.classList.add("item-lista-border");
 
-  div.setAttribute("id", `${textContent.split(" ")[0]}Border`);
+  div.setAttribute("id", `${textContent.replaceAll(' ', '')}Border`);
 
   return div;
 }
