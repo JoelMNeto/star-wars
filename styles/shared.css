@@ -1,9 +1,9 @@
-html {
+body {
   height: 100vh;
+  background-color: #000000 !important;
 }
 
 * {
-  background-color: #000000;
   font-family: Arial;
 }
 
@@ -73,6 +73,7 @@ html {
 .container-conteudo {
   min-height: 63.5vh;
   max-height: 63.5vh;
+  margin-bottom: 7.8%;
 }
 
 .lista-container {
@@ -136,7 +137,6 @@ html {
 }
 
 .rodape {
-  height: 23.25vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

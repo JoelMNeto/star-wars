@@ -1,11 +1,10 @@
-html {
+body {
   height: 100vh;
+  background-color: #000000 !important;
 }
 
 * {
-  background-color: #000000;
   font-family: Arial;
-  overflow: hidden;
 }
 
 .menu-home {
@@ -71,6 +70,8 @@ html {
   color: #fed34f;
   font-size: calc(100vh * 0.034);
   text-align: justify;
+  overflow: hidden;
+  margin-bottom: 15%;
 }
 
 .texto-home-content {
@@ -94,7 +95,6 @@ html {
 }
 
 .rodape-home {
-  height: 40vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
