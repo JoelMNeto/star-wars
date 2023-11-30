@@ -1,5 +1,9 @@
 let content = [];
 
+let contentFilmes = [];
+
+let contentResidentes = [];
+
 let listaPlanetas = document.querySelector("#listaPlanetas");
 
 let pesquisa = document.querySelector("#pesquisa");
@@ -7,6 +11,34 @@ let pesquisa = document.querySelector("#pesquisa");
 let listaContainer = document.querySelector("#listaContainer");
 
 let carregando = document.querySelector("#carregando");
+
+let carregandoContent = document.querySelector("#carregandoContent");
+
+let conteudo = document.querySelector("#conteudoPlanetas");
+
+let planetas = document.querySelectorAll("ul > li");
+
+let planetaNome = document.querySelector("#planetaNome");
+
+let planetaPeriodoR = document.querySelector("#planetaPeriodoR");
+
+let planetaPeriodoO = document.querySelector("#planetaPeriodoO");
+
+let planetaDiametro = document.querySelector("#planetaDiametro");
+
+let planetaClima = document.querySelector("#planetaClima");
+
+let planetaGravidade = document.querySelector("#planetaGravidade");
+
+let planetaAguaSup = document.querySelector("#planetaAguaSup");
+
+let planetaPopulacao = document.querySelector("#planetaPopulacao");
+
+let btnInfoFilmes = document.querySelector("#btnInfoFilmes");
+
+let btnInfoResidentes = document.querySelector("#btnInfoResidentes");
+
+conteudo.style.display = "none";
 
 getPlanetas(listaPlanetas, listaContainer, carregando);
 
@@ -25,42 +57,6 @@ pesquisa.addEventListener("input", (event) => {
     i.style.display = "none";
   });
 });
-
-adicionaBordaHover(
-  "#linkPersonagens",
-  "#linkBordaPersonagens",
-  "menu-container-link-border-active"
-);
-
-adicionaBordaHover(
-  "#linkPlanetas",
-  "#linkBordaPlanetas",
-  "menu-container-link-border-active"
-);
-
-adicionaBordaHover(
-  "#linkVeiculos",
-  "#linkBordaVeiculos",
-  "menu-container-link-border-active"
-);
-
-adicionaBordaHover(
-  "#linkFilmes",
-  "#linkBordaFilmes",
-  "menu-container-link-border-active"
-);
-
-adicionaBordaHover(
-  "#linkEspecies",
-  "#linkBordaEspecies",
-  "menu-container-link-border-active"
-);
-
-adicionaBordaHover(
-  "#linkEspaconaves",
-  "#linkBordaEspaconaves",
-  "menu-container-link-border-active"
-);
 
 function adicionaBordaHover(link, borda, classe) {
   let seletorLink = document.querySelector(link);
@@ -98,6 +94,8 @@ async function getPlanetas(lista, listaContainer, carregando) {
     .finally(() => {
       carregando.style.display = "none";
       listaContainer.style.display = "block";
+      conteudo.style.display = "flex";
+      montaInformacoes(content[0]);
     });
 }
 
@@ -113,13 +111,13 @@ async function montaLista(seletorLista, planetas) {
 
 function montaItemLista(lista, textContent) {
   let div = montaBordaItem(textContent);
-  let button = montaLinkItem(textContent);
+  let button = montaBotaoItem(textContent);
 
   let li = document.createElement("li");
 
   li.classList.add("item-lista");
 
-  li.setAttribute("id", `${textContent.replaceAll('')}`);
+  li.setAttribute("id", `${textContent.replaceAll(" ", "")}lista`);
 
   li.append(button, div);
 
@@ -128,14 +126,20 @@ function montaItemLista(lista, textContent) {
   adicionaBordaHover(`#${button.id}`, `#${div.id}`, "item-lista-border-active");
 }
 
-function montaLinkItem(textContent) {
+function montaBotaoItem(textContent) {
   let button = document.createElement("button");
 
   button.classList.add("item-lista-btn");
 
   button.textContent = textContent;
 
-  button.setAttribute("id", `${textContent.replaceAll('')}Btn`);
+  button.setAttribute("id", `${textContent.replaceAll(" ", "")}`);
+
+  button.onclick = async function () {
+    let planeta = content.find((p) => p.name === button.textContent);
+
+    await montaInformacoes(planeta);
+  };
 
   return button;
 }
@@ -145,7 +149,166 @@ function montaBordaItem(textContent) {
 
   div.classList.add("item-lista-border");
 
-  div.setAttribute("id", `${textContent.replaceAll('')}Border`);
+  div.setAttribute("id", `${textContent.replaceAll(" ", "")}Border`);
 
   return div;
 }
+
+async function montaInformacoes(planeta) {
+  await getContent(planeta.residents);
+
+  await getContent(planeta.films);
+
+  let botoes = document.querySelectorAll('li > button');
+
+  let bordas = document.querySelectorAll('li > div');
+
+  bordas.forEach((b) => b.classList.remove('item-lista-border-selecionada'));
+
+  botoes.forEach((btn) => {
+    btn.style.color = '';
+  });
+
+  let button = document.querySelector(
+    `#${planeta.name.replaceAll(" ", "")}`
+  );
+
+  let border = document.querySelector(
+    `#${planeta.name.replaceAll(" ", "")}Border`
+  );
+
+  border.classList.add('item-lista-border-selecionada');
+
+  button.style.color = '#fdf149';
+
+  planetaNome.textContent = planeta.name.toUpperCase();
+
+  planetaAguaSup.textContent = `${planeta.surface_water}`;
+
+  planetaClima.textContent = `${planeta.climate}`;
+
+  planetaDiametro.textContent = `${planeta.diameter} Km`;
+
+  planetaGravidade.textContent = `${planeta.gravity}`;
+
+  planetaPeriodoO.textContent = `${planeta.orbital_period} dias`;
+
+  planetaPeriodoR.textContent = `${planeta.rotation_period} dias`;
+
+  planetaPopulacao.textContent = `${planeta.population}`;
+}
+
+function montaModalRequest(titulo) {
+  let modalTitulo = document.querySelector("#tituloModal");
+
+  let modal = document.querySelector("#bodyModal");
+
+  let spanNoContent = document.createElement("span");
+
+  modal.childNodes.forEach((el) => (el.style.display = "none"));
+
+  film = titulo === "Filmes";
+
+  let informacoes = [];
+
+  if (titulo === "Filmes") {
+    informacoes = contentFilmes;
+  } else if (titulo === "Residentes") {
+    informacoes = contentResidentes;
+  }
+
+  modalTitulo.textContent = titulo;
+
+  if (informacoes.length <= 0) {
+    spanNoContent.textContent = "Não há nada aqui";
+
+    modal.appendChild(spanNoContent);
+
+    return;
+  }
+
+  informacoes.forEach((info) => {
+    let li = document.createElement("li");
+
+    li.textContent = film ? info.title : info.name;
+
+    modal.appendChild(li);
+  });
+}
+
+async function getContent(urls) {
+  if (urls.length <= 0) {
+    contentFilmes = [];
+    contentResidentes = [];
+
+    return;
+  }
+
+  let filmes = !!urls.find((u) => u.includes('films'));
+
+  conteudo.style.display = "none";
+
+  carregandoContent.style.display = "flex";
+
+  let retorno = [];
+
+  Promise.all(urls.map((url) => fetch(url)))
+    .then((response) => Promise.all(response.map((r) => r.json())))
+    .then((results) => {
+      retorno = [...results];
+
+      if (filmes) {
+        contentFilmes = [...retorno];
+      } else {
+        contentResidentes = [...retorno];
+      }
+    })
+    .finally(() => {
+      conteudo.style.display = "flex";
+      carregandoContent.style.display = "none";
+    });
+}
+
+adicionaBordaHover(
+  "#linkPersonagens",
+  "#linkBordaPersonagens",
+  "menu-container-link-border-active"
+);
+
+adicionaBordaHover(
+  "#linkPlanetas",
+  "#linkBordaPlanetas",
+  "menu-container-link-border-active"
+);
+
+adicionaBordaHover(
+  "#linkVeiculos",
+  "#linkBordaVeiculos",
+  "menu-container-link-border-active"
+);
+
+adicionaBordaHover(
+  "#linkFilmes",
+  "#linkBordaFilmes",
+  "menu-container-link-border-active"
+);
+
+adicionaBordaHover(
+  "#linkEspecies",
+  "#linkBordaEspecies",
+  "menu-container-link-border-active"
+);
+
+adicionaBordaHover(
+  "#linkEspaconaves",
+  "#linkBordaEspaconaves",
+  "menu-container-link-border-active"
+);
+
+adicionaBordaHover(
+  "#btnInfoResidentes",
+  "#bordaInfoResidentes",
+  "btn-info-active"
+);
+
+adicionaBordaHover("#btnInfoFilmes", "#bordaInfoFilmes", "btn-info-active");

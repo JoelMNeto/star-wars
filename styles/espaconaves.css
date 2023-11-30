@@ -1,0 +1,38 @@
+.content-container {
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  width: 45vw;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3% 3% 2% 3%;
+  row-gap: 15%;
+}
+
+.informacoes-naves {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  color: #ffffff;
+  height: 180px !important;
+  width: 100%;
+  gap: 1%;
+  font-size: 12px;
+}
+
+.item-informacoes {
+  height: 20px !important;
+  width: 211px !important;
+  padding: 0 5px 0 5px;
+  text-align: center;
+}
+
+.label-value {
+  gap: 4%;
+}
+
+.label-informacoes {
+  color: #fdf149d7;
+  text-align: left;
+}

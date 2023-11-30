@@ -151,10 +151,14 @@
         class="container-conteudo d-flex justify-content-lg-between align-items-center"
       >
         <div class="conteudo-content">
-          <div id="conteudoPersonagens" class="content-personagem">
-            <span id="personagemNome" class="titulo-personagem"></span>
+          <div id="carregandoContent" class="container-content-spinner">
+            <div class="spinner"></div>
+          </div>
+
+          <div id="conteudoPersonagens" class="content-container">
+            <span id="personagemNome" class="titulo-content"></span>
             <div class="conteudo-personagem">
-              <img id="personagemImagem" alt="" />
+              <img id="personagemImagem"/>
               <div class="informacoes-personagem">
                 <span id="personagemPeso" class="item-informacoes"></span>
 
@@ -193,7 +197,6 @@
                     data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop"
                     onclick="montaModalRequest('Espaçonaves')"
-
                   >
                     Espaçonaves
                   </button>

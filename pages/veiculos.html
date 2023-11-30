@@ -112,11 +112,130 @@
     </header>
 
     <main>
+      <div
+        class="t-modal modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                id="tituloModal"
+                class="modal-title fs-5"
+                id="staticBackdropLabel"
+              ></h1>
+            </div>
+            <div class="modal-body">
+              <ul id="bodyModal"></ul>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <section
         id="conteudo"
         class="container-conteudo d-flex justify-content-lg-between align-items-center"
       >
-        <div class="conteudo-content"></div>
+        <div class="conteudo-content">
+          <div id="carregandoContent" class="container-content-spinner">
+            <div class="spinner"></div>
+          </div>
+
+          <div id="conteudoVeiculos" class="content-container">
+            <span id="veiculoNome" class="titulo-content"></span>
+            <div class="informacoes-veiculos">
+              <div class="item-informacoes label-value label-value d-flex justify-content-start">
+                <span  class="label-informacoes">Modelo:</span>
+                <span id="modeloVeiculo"></span>
+              </div>
+
+              <div class="item-informacoes label-value d-flex justify-content-start">
+                <span class="label-informacoes">Fabricante:</span>
+                <span id="fabricanteVeiculo"></span>
+              </div>
+
+              <div class="item-informacoes label-value d-flex justify-content-start">
+                <span class="label-informacoes">Preço em créditos galáticos:</span>
+                <span id="custoVeiculo"></span>
+              </div>
+
+              <div class="item-informacoes label-value d-flex justify-content-start">
+                <span class="label-informacoes">Tamanho do veículo:</span>
+                <span id="tamanhoVeiculo"></span>
+              </div>
+
+              <div class="item-informacoes label-value d-flex justify-content-start">
+                <span class="label-informacoes">Velocidade máxima:</span>
+                <span id="velocidadeVeiculo"></span>
+              </div>
+
+              <div class="item-informacoes label-value d-flex justify-content-start">
+                <span class="label-informacoes">Número de pilotos:</span>
+                <span id="numPessVeiculo"></span>
+              </div>
+
+              <div class="item-informacoes label-value d-flex justify-content-start">
+                <span class="label-informacoes">Número de passsageiros:</span>
+                <span id="capacidadeVeiculo"></span>
+              </div>
+
+              <div class="item-informacoes label-value d-flex justify-content-start">
+                <span class="label-informacoes">Carga máxima:</span>
+                <span id="cargaVeiculo"></span>
+              </div>
+
+              <div class="item-informacoes label-value d-flex justify-content-start">
+                <span class="label-informacoes">Tempo de subisistência:</span>
+                <span id="capacidadeConsumoVeiculo"></span>
+              </div>
+
+              <div class="item-informacoes label-value d-flex justify-content-start">
+                <span class="label-informacoes">Classe:</span>
+                <span id="classeVeiculo"></span>
+              </div>
+
+              <div class="item-informacoes">
+                <button
+                  id="btnInfoFilmes"
+                  class="item-lista-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="montaModalRequest('Filmes')"
+                >
+                  Filmes
+                </button>
+                <div id="bordaInfoFilmes" class="item-lista-border"></div>
+              </div>
+
+              <div class="item-informacoes">
+                <button
+                  id="btnInfoPilotos"
+                  class="item-lista-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="montaModalRequest('Pilotos')"
+                >
+                  Pilotos
+                </button>
+                <div id="bordaInfoPilotos" class="item-lista-border"></div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div id="carregando" class="container-spinner">
           <div class="spinner"></div>
@@ -137,5 +256,10 @@
     </footer>
 
     <script type="text/javascript" src="../scripts/veiculos.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

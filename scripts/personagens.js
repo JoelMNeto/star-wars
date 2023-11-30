@@ -18,6 +18,8 @@ let listaContainer = document.querySelector("#listaContainer");
 
 let carregando = document.querySelector("#carregando");
 
+let carregandoContent = document.querySelector("#carregandoContent");
+
 let conteudo = document.querySelector("#conteudoPersonagens");
 
 let personagens = document.querySelectorAll("ul > li");
@@ -30,17 +32,17 @@ let altura = document.querySelector("#personagemAltura");
 
 let peso = document.querySelector("#personagemPeso");
 
-let filmes = document.querySelector("#personagemFilmes");
+let filmes = document.querySelector("#btnInfoFilmes");
 
-let veiculos = document.querySelector("#personagemVeiculos");
+let veiculos = document.querySelector("#btnInfoVeiculos");
 
-let espaconaves = document.querySelector("#personagemEspaconaves");
+let espaconaves = document.querySelector("#btnInfoEspaconaves");
 
-let planeta = document.querySelector("#personagemPlaneta");
+let planeta = document.querySelector("#btnInfoPlaneta");
 
-let especie = document.querySelector("#personagemEspecie");
+let especie = document.querySelector("#btnInfoEspecie");
 
-let maisInfo = document.querySelector("#personagemMaisInfo");
+let maisInfo = document.querySelector("#btnInfoMaisInfo");
 
 conteudo.style.display = "none";
 
@@ -151,6 +153,16 @@ function montaBotaoItem(textContent) {
   return button;
 }
 
+function montaBordaItem(textContent) {
+  let div = document.createElement("div");
+
+  div.classList.add("item-lista-border");
+
+  div.setAttribute("id", `${textContent.replaceAll(" ", "")}Border`);
+
+  return div;
+}
+
 async function montaInformacoes(personagem) {
   await getContent(personagem.films);
 
@@ -162,9 +174,27 @@ async function montaInformacoes(personagem) {
 
   await getContent([personagem.homeworld]);
 
+  let botoes = document.querySelectorAll("li > button");
+
+  let bordas = document.querySelectorAll("li > div");
+
+  bordas.forEach((b) => b.classList.remove("item-lista-border-selecionada"));
+
+  botoes.forEach((btn) => {
+    btn.style.color = "";
+  });
+
   let button = document.querySelector(
     `#${personagem.name.replaceAll(" ", "")}`
   );
+
+  let border = document.querySelector(
+    `#${personagem.name.replaceAll(" ", "")}Border`
+  );
+
+  border.classList.add("item-lista-border-selecionada");
+
+  button.style.color = "#fdf149";
 
   personagemNome.textContent = personagem.name.toUpperCase();
 
@@ -187,11 +217,11 @@ function montaModalRequest(titulo) {
 
   let spanNoContent = document.createElement("span");
 
-  modal.childNodes.forEach((el) => el.style.display = 'none');
+  modal.childNodes.forEach((el) => (el.style.display = "none"));
 
   film = titulo === "Filmes";
 
-  informacoes = getContentModal(titulo);
+  let informacoes = getContentModal(titulo);
 
   modalTitulo.textContent = titulo;
 
@@ -203,34 +233,70 @@ function montaModalRequest(titulo) {
     return;
   }
 
-  informacoes.forEach((info) => {  
+  informacoes.forEach((info) => {
     let li = document.createElement("li");
 
     li.textContent = film ? info.title : info.name;
 
     modal.appendChild(li);
   });
-
 }
 
-function montaBordaItem(textContent) {
-  let div = document.createElement("div");
+function montaModalMaisInfo(titulo) {
+  let pMaisInfo = content.find(
+    (p) => p.name.toUpperCase() === personagemNome.textContent
+  );
 
-  div.classList.add("item-lista-border");
+  let modalTitulo = document.querySelector("#tituloModal");
 
-  div.setAttribute("id", `${textContent.replaceAll(" ", "")}Border`);
+  let modal = document.querySelector("#bodyModal");
 
-  return div;
+  modal.childNodes.forEach((el) => (el.style.display = "none"));
+
+  modalTitulo.textContent = titulo;
+
+  let li1 = document.createElement("li");
+
+  li1.textContent = `Gender: ${pMaisInfo.gender}`;
+
+  let li2 = document.createElement("li");
+
+  li2.textContent = `Hair color: ${pMaisInfo.hair_color}`;
+
+  let li3 = document.createElement("li");
+
+  li3.textContent = `Skin color: ${pMaisInfo.skin_color}`;
+
+  let li4 = document.createElement("li");
+
+  li4.textContent = `Eye color: ${pMaisInfo.eye_color}`;
+
+  let li5 = document.createElement("li");
+
+  li5.textContent = `Birth year: ${pMaisInfo.birth_year}`;
+
+  modal.append(li1, li2, li3, li4, li5);
 }
 
 async function getContent(urls) {
   if (urls.length <= 0) {
+    contentFilmes = [];
+    contentEspecies = [];
+    contentEspaconaves = [];
+    contentVeiculos = [];
+    contentPlaneta = [];
+    
     return;
   }
 
-  let titulo = urls[0].slice((urls[0].indexOf("i/") + 2), (urls[0].lastIndexOf("s/") + 1));
+  let titulo = urls[0].slice(
+    urls[0].indexOf("i/") + 2,
+    urls[0].lastIndexOf("s/") + 1
+  );
 
   conteudo.style.display = "none";
+
+  carregandoContent.style.display = "flex";
 
   let retorno = [];
 
@@ -241,45 +307,26 @@ async function getContent(urls) {
 
       if (titulo === "films") {
         contentFilmes = [...retorno];
-      }
-    
-      if (titulo === "species") {
+      } else if (titulo === "species") {
         contentEspecies = [...retorno];
-      }
-    
-      if (titulo === "starships") {
+      } else if (titulo === "starships") {
         contentEspaconaves = [...retorno];
-      }
-    
-      if (titulo === "vehicles") {
+      } else if (titulo === "vehicles") {
         contentVeiculos = [...retorno];
-      }
-    
-      if (titulo === "planets") {
+      } else if (titulo === "planets") {
         contentPlaneta = [...retorno];
       }
     })
     .finally(() => {
       conteudo.style.display = "flex";
+      carregandoContent.style.display = "none";
     });
-}
-
-function getGenero(genero) {
-  if (genero === "male") {
-    return "Homem";
-  }
-
-  if (genero === "female") {
-    return "Mulher";
-  }
-
-  return "Desconhecido";
 }
 
 function getContentModal(titulo) {
   if (titulo === "Filmes") {
     return contentFilmes;
-  } 
+  }
 
   if (titulo === "Espécies") {
     return contentEspecies;
