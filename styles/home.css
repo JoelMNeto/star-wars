@@ -1,6 +1,7 @@
 body {
   height: 100vh;
   background-color: #000000 !important;
+  overflow: hidden;
 }
 
 * {
