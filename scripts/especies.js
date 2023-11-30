@@ -111,33 +111,31 @@ async function montaLista(seletorLista, especies) {
 
 function montaItemLista(lista, textContent) {
   let div = montaBordaItem(textContent);
-  let a = montaLinkItem(textContent);
+  let button = montaLinkItem(textContent);
 
   let li = document.createElement("li");
 
   li.classList.add("item-lista");
 
-  li.setAttribute("id", `${textContent.split(" ")[0].replaceAll('\'', '')}`);
+  li.setAttribute("id", `${textContent.replaceAll('').replaceAll('\'', '')}`);
 
-  li.append(a, div);
+  li.append(button, div);
 
   lista.appendChild(li);
 
-  adicionaBordaHover(`#${a.id}`, `#${div.id}`, "item-lista-border-active");
-
-  a.onclick = () => {};
+  adicionaBordaHover(`#${button.id}`, `#${div.id}`, "item-lista-border-active");
 }
 
 function montaLinkItem(textContent) {
-  let a = document.createElement("a");
+  let button = document.createElement("button");
 
-  a.classList.add("item-lista-link");
+  button.classList.add("item-lista-btn");
 
-  a.textContent = textContent;
+  button.textContent = textContent;
 
-  a.setAttribute("id", `${textContent.split(" ")[0].replaceAll('\'', '')}Link`);
+  button.setAttribute("id", `${textContent.replaceAll('').replaceAll('\'', '')}Btn`);
 
-  return a;
+  return button;
 }
 
 function montaBordaItem(textContent) {
@@ -145,7 +143,7 @@ function montaBordaItem(textContent) {
 
   div.classList.add("item-lista-border");
 
-  div.setAttribute("id", `${textContent.split(" ")[0].replaceAll('\'', '')}Border`);
+  div.setAttribute("id", `${textContent.replaceAll('').replaceAll('\'', '')}Border`);
 
   return div;
 }

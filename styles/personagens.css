@@ -1,0 +1,46 @@
+.content-personagem {
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  width: 45vw;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3% 5% 2% 5%;
+  row-gap: 15%;
+}
+
+.conteudo-personagem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 10%;
+  width: 100%;
+}
+
+.informacoes-personagem {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  color: white;
+  height: 180px !important;
+  width: 100%;
+  gap: 5%;
+  font-size: 14px;
+}
+
+.titulo-personagem {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: #fdf149;
+  width: 100%;
+  display: inline-block;
+  border-bottom: 1px solid #fdf149;
+  box-shadow: 0px 1px 0px 0px #fdf149d7;
+}
+
+.item-informacoes {
+  height: 20px !important;
+  width: 120px !important;
+  text-align: center;
+}

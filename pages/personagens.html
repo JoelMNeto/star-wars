@@ -112,11 +112,139 @@
     </header>
 
     <main>
+      <div
+        class="t-modal modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                id="tituloModal"
+                class="modal-title fs-5"
+                id="staticBackdropLabel"
+              ></h1>
+            </div>
+            <div class="modal-body">
+              <ul id="bodyModal"></ul>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <section
         id="conteudo"
         class="container-conteudo d-flex justify-content-lg-between align-items-center"
       >
-        <div class="conteudo-content"></div>
+        <div class="conteudo-content">
+          <div id="conteudoPersonagens" class="content-personagem">
+            <span id="personagemNome" class="titulo-personagem"></span>
+            <div class="conteudo-personagem">
+              <img id="personagemImagem" alt="" />
+              <div class="informacoes-personagem">
+                <span id="personagemPeso" class="item-informacoes"></span>
+
+                <span id="personagemAltura" class="item-informacoes"></span>
+
+                <div class="item-informacoes">
+                  <button
+                    id="btnInfoFilmes"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Filmes')"
+                  >
+                    Filmes
+                  </button>
+                  <div id="bordaInfoFilmes" class="item-lista-border"></div>
+                </div>
+
+                <div class="item-informacoes">
+                  <button
+                    id="btnInfoVeiculos"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Veículos')"
+                  >
+                    Veículos
+                  </button>
+                  <div id="bordaInfoVeiculos" class="item-lista-border"></div>
+                </div>
+
+                <div class="item-informacoes">
+                  <button
+                    id="btnInfoEspaconaves"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Espaçonaves')"
+
+                  >
+                    Espaçonaves
+                  </button>
+                  <div
+                    id="bordaInfoEspaconaves"
+                    class="item-lista-border"
+                  ></div>
+                </div>
+
+                <div class="item-informacoes">
+                  <button
+                    id="btnInfoPlaneta"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Planeta')"
+                  >
+                    Planeta
+                  </button>
+                  <div id="bordaInfoPlaneta" class="item-lista-border"></div>
+                </div>
+
+                <div class="item-informacoes">
+                  <button
+                    id="btnInfoEspecie"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Espécies')"
+                  >
+                    Espécies
+                  </button>
+                  <div id="bordaInfoEspecie" class="item-lista-border"></div>
+                </div>
+
+                <div class="item-informacoes">
+                  <button
+                    id="btnInfoMaisInfo"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalMaisInfo('Mais informações')"
+                  >
+                    Mais informações
+                  </button>
+                  <div id="bordaInfoMaisInfo" class="item-lista-border"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div id="carregando" class="container-spinner">
           <div class="spinner"></div>
@@ -131,11 +259,17 @@
     <footer>
       <section class="rodape">
         <span class="texto-rodape">
-          Desenvolvido por Joel Marçola Neto, João Pedro da Silva Vieira e Gabriel Dellatore Ezequiel
+          Desenvolvido por Joel Marçola Neto, João Pedro da Silva Vieira e
+          Gabriel Dellatore Ezequiel
         </span>
       </section>
     </footer>
 
     <script type="text/javascript" src="../scripts/personagens.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

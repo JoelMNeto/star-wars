@@ -104,7 +104,7 @@ async function montaLista(seletorLista, filmes) {
 
 function montaItemLista(lista, textContent) {
   let div = montaBordaItem(textContent);
-  let a = montaLinkItem(textContent);
+  let button = montaLinkItem(textContent);
 
   let li = document.createElement("li");
 
@@ -112,25 +112,23 @@ function montaItemLista(lista, textContent) {
 
   li.setAttribute("id", `${textContent.replaceAll(' ', '')}`);
 
-  li.append(a, div);
+  li.append(button, div);
 
   lista.appendChild(li);
 
-  adicionaBordaHover(`#${a.id}`, `#${div.id}`, "item-lista-border-active");
-
-  a.onclick = () => {};
+  adicionaBordaHover(`#${button.id}`, `#${div.id}`, "item-lista-border-active");
 }
 
 function montaLinkItem(textContent) {
-  let a = document.createElement("a");
+  let button = document.createElement("button");
 
-  a.classList.add("item-lista-link");
+  button.classList.add("item-lista-btn");
 
-  a.textContent = textContent;
+  button.textContent = textContent;
 
-  a.setAttribute("id", `${textContent.replaceAll(' ', '')}Link`);
+  button.setAttribute("id", `${textContent.replaceAll(' ', '')}Btn`);
 
-  return a;
+  return button;
 }
 
 function montaBordaItem(textContent) {
