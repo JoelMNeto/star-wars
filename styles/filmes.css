@@ -7,13 +7,13 @@
   color: #ffffff;
   height: 100%;
   width: 100%;
-  gap: 30%;
+  gap: 10%;
   font-size: 14px;
 }
 
 .item-informacoes {
   height: 20px !important;
-  width: 200px !important;
+  width: 150px !important;
   text-align: center;
   margin: 1%;
 }

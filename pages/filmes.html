@@ -158,117 +158,126 @@
           <div id="conteudoFilmes" class="content-container">
             <span id="filmeTitulo" class="titulo-content"></span>
             <div class="informacoes-filmes">
-              <div
-                class="item-informacoes label-value label-value d-flex justify-content-between"
-              >
-                <span class="label-informacoes">Episódio:</span>
-                <span id="filmeEpisodio"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-between"
-              >
-                <span class="label-informacoes">Diretor:</span>
-                <span id="filmeDiretor"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-between"
-              >
-                <span class="label-informacoes">Lançamento:</span>
-                <span id="filmeData"></span>
-              </div>
-
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoProducao"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="producaoModal()"
+              <div class="row w-100">
+                <div
+                  class="item-informacoes col label-value label-value d-flex justify-content-between"
                 >
-                  Produção
-                </button>
-                <div id="bordaInfoProducao" class="item-lista-border"></div>
+                  <span class="label-informacoes">Episódio:</span>
+                  <span id="filmeEpisodio"></span>
+                </div>
+  
+                <div
+                  class="item-informacoes col label-value d-flex justify-content-between"
+                >
+                  <span class="label-informacoes">Diretor:</span>
+                  <span id="filmeDiretor"></span>
+                </div>
+  
+                <div
+                  class="item-informacoes col label-value d-flex justify-content-between"
+                >
+                  <span class="label-informacoes">Lançamento:</span>
+                  <span id="filmeData"></span>
+                </div>
               </div>
 
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoAbertura"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="aberturaFilmeModal()"
-                >
-                  Abertura
-                </button>
-                <div id="bordaInfoAbertura" class="item-lista-border"></div>
+              <div class="row w-100">
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfoProducao"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="producaoModal()"
+                  >
+                    Produção
+                  </button>
+                  <div id="bordaInfoProducao" class="item-lista-border"></div>
+                </div>
+  
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfoAbertura"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="aberturaFilmeModal()"
+                  >
+                    Abertura
+                  </button>
+                  <div id="bordaInfoAbertura" class="item-lista-border"></div>
+                </div>
+  
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfoPersonagens"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Personagens')"
+                  >
+                    Personagens
+                  </button>
+                  <div id="bordaInfoPersonagens" class="item-lista-border"></div>
+                </div>
               </div>
 
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoPersonagens"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="montaModalRequest('Personagens')"
-                >
-                  Personagens
-                </button>
-                <div id="bordaInfoPersonagens" class="item-lista-border"></div>
+              <div class="row w-100">
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfoPlanetas"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Planetas')"
+                  >
+                    Planetas
+                  </button>
+                  <div id="bordaInfoPlanetas" class="item-lista-border"></div>
+                </div>
+  
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfoNaves"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Espaçonaves')"
+                  >
+                    Espaçonaves
+                  </button>
+                  <div id="bordaInfoNaves" class="item-lista-border"></div>
+                </div>
+                            
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfoVeiculos"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Veículos')"
+                  >
+                    Veículos
+                  </button>
+                  <div id="bordaInfoVeiculos" class="item-lista-border"></div>
+                </div>
               </div>
 
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoPlanetas"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="montaModalRequest('Planetas')"
-                >
-                  Planetas
-                </button>
-                <div id="bordaInfoPlanetas" class="item-lista-border"></div>
+              <div class="row">
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfoEspecies"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Espécies')"
+                  >
+                  Espécies
+                  </button>
+                  <div id="bordaInfoEspecies" class="item-lista-border"></div>
+                </div>
               </div>
 
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoNaves"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="montaModalRequest('Espaçonaves')"
-                >
-                  Espaçonaves
-                </button>
-                <div id="bordaInfoNaves" class="item-lista-border"></div>
-              </div>
-
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoVeiculos"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="montaModalRequest('Veículos')"
-                >
-                  Veículos
-                </button>
-                <div id="bordaInfoVeiculos" class="item-lista-border"></div>
-              </div>
-
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoEspecies"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="montaModalRequest('Espécies')"
-                >
-                Espécies
-                </button>
-                <div id="bordaInfoEspecies" class="item-lista-border"></div>
-              </div>
             </div>
           </div>
         </div>
