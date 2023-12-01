@@ -26,22 +26,6 @@ let fabricanteVeiculo = document.querySelector("#fabricanteVeiculo");
 
 let custoVeiculo = document.querySelector("#custoVeiculo");
 
-let tamanhoVeiculo = document.querySelector("#tamanhoVeiculo");
-
-let velocidadeVeiculo = document.querySelector("#velocidadeVeiculo");
-
-let numPessVeiculo = document.querySelector("#numPessVeiculo");
-
-let capacidadeVeiculo = document.querySelector("#capacidadeVeiculo");
-
-let cargaVeiculo = document.querySelector("#cargaVeiculo");
-
-let capacidadeConsumoVeiculo = document.querySelector(
-  "#capacidadeConsumoVeiculo"
-);
-
-let classeVeiculo = document.querySelector("#classeVeiculo");
-
 conteudo.style.display = "none";
 
 getVeiculos(listaVeiculos, listaContainer, carregando);
@@ -163,9 +147,9 @@ function montaBordaItem(textContent) {
 }
 
 async function montaInformacoes(veiculo) {
-  await getContent(veiculo.pilots);
+  await getContent(veiculo.pilots, false);
 
-  await getContent(veiculo.films);
+  await getContent(veiculo.films, true);
 
   let botoes = document.querySelectorAll("li > button");
 
@@ -194,20 +178,50 @@ async function montaInformacoes(veiculo) {
   fabricanteVeiculo.textContent = veiculo.manufacturer;
 
   custoVeiculo.textContent = veiculo.cost_in_credits;
+}
 
-  tamanhoVeiculo.textContent = `${veiculo.length} m`;
+function montaModalMaisInfo() {
+  let veiculoInfo = content.find(
+    (p) => p.name.toUpperCase() === veiculoNome.textContent
+  );
 
-  velocidadeVeiculo.textContent = veiculo.max_atmosphering_speed;
+  let modalTitulo = document.querySelector("#tituloModal");
 
-  numPessVeiculo.textContent = veiculo.crew;
+  let modal = document.querySelector("#bodyModal");
 
-  capacidadeVeiculo.textContent = veiculo.passengers;
+  modal.childNodes.forEach((el) => (el.style.display = "none"));
 
-  cargaVeiculo.textContent = `${veiculo.cargo_capacity} Kg`;
+  modalTitulo.textContent = 'Mais informações';
 
-  capacidadeConsumoVeiculo.textContent = veiculo.consumables;
+  let li1 = document.createElement("li");
 
-  classeVeiculo.textContent = veiculo.vehicle_class;
+  li1.textContent = `Max atmosphering speed: ${veiculoInfo.max_atmosphering_speed}`;
+
+  let li2 = document.createElement("li");
+
+  li2.textContent = `Crew: ${veiculoInfo.crew}`;
+
+  let li3 = document.createElement("li");
+
+  li3.textContent = `Passengers: ${veiculoInfo.passengers}`;
+
+  let li4 = document.createElement("li");
+
+  li4.textContent = `Cargo capacity: ${veiculoInfo.cargo_capacity} Kg`;
+  
+  let li5 = document.createElement("li");
+
+  li5.textContent = `Vehicle class: ${veiculoInfo.vehicle_class}`;
+
+  let li6 = document.createElement("li");
+
+  li6.textContent = `Consumables: ${veiculoInfo.consumables}`;
+
+  let li7 = document.createElement("li");
+
+  li7.textContent = `Length: ${veiculoInfo.length} m`;
+
+  modal.append(li1, li2, li3, li4, li5, li6, li7);
 }
 
 function montaModalRequest(titulo) {
@@ -248,15 +262,13 @@ function montaModalRequest(titulo) {
   });
 }
 
-async function getContent(urls) {
+async function getContent(urls, filmes) {
   if (urls.length <= 0) {
     contentFilmes = [];
     contentPilotos = [];
     
     return;
   }
-
-  let filmes = !!urls.find((u) => u.includes('films'));
 
   conteudo.style.display = "none";
 
@@ -320,3 +332,5 @@ adicionaBordaHover(
 adicionaBordaHover("#btnInfoPilotos", "#bordaInfoPilotos", "btn-info-active");
 
 adicionaBordaHover("#btnInfoFilmes", "#bordaInfoFilmes", "btn-info-active");
+
+adicionaBordaHover("#btnInfo", "#bordaInfo", "btn-info-active");

@@ -158,80 +158,62 @@
           <div id="conteudoVeiculos" class="content-container">
             <span id="veiculoNome" class="titulo-content"></span>
             <div class="informacoes-veiculos">
-              <div class="item-informacoes label-value label-value d-flex justify-content-start">
-                <span  class="label-informacoes">Modelo:</span>
-                <span id="modeloVeiculo"></span>
+              <div class="row">
+                <div class="item-informacoes col label-value label-value d-flex justify-content-between">
+                  <span  class="label-informacoes">Modelo:</span>
+                  <span id="modeloVeiculo"></span>
+                </div>
+  
+                <div class="item-informacoes col label-value d-flex justify-content-between">
+                  <span class="label-informacoes">Fabricante:</span>
+                  <span id="fabricanteVeiculo"></span>
+                </div>
+  
+                <div class="item-informacoes col label-value d-flex justify-content-between">
+                  <span class="label-informacoes">Preço:</span>
+                  <span id="custoVeiculo"></span>
+                </div>
               </div>
+              <div class="row">
 
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Fabricante:</span>
-                <span id="fabricanteVeiculo"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Preço em créditos galáticos:</span>
-                <span id="custoVeiculo"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Tamanho do veículo:</span>
-                <span id="tamanhoVeiculo"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Velocidade máxima:</span>
-                <span id="velocidadeVeiculo"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Número de pilotos:</span>
-                <span id="numPessVeiculo"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Número de passsageiros:</span>
-                <span id="capacidadeVeiculo"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Carga máxima:</span>
-                <span id="cargaVeiculo"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Tempo de subisistência:</span>
-                <span id="capacidadeConsumoVeiculo"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Classe:</span>
-                <span id="classeVeiculo"></span>
-              </div>
-
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoFilmes"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="montaModalRequest('Filmes')"
-                >
-                  Filmes
-                </button>
-                <div id="bordaInfoFilmes" class="item-lista-border"></div>
-              </div>
-
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoPilotos"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="montaModalRequest('Pilotos')"
-                >
-                  Pilotos
-                </button>
-                <div id="bordaInfoPilotos" class="item-lista-border"></div>
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfoFilmes"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Filmes')"
+                  >
+                    Filmes
+                  </button>
+                  <div id="bordaInfoFilmes" class="item-lista-border"></div>
+                </div>
+  
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfoPilotos"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Pilotos')"
+                  >
+                    Pilotos
+                  </button>
+                  <div id="bordaInfoPilotos" class="item-lista-border"></div>
+                </div>
+  
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfo"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalMaisInfo()"
+                  >
+                    Mais Informações
+                  </button>
+                  <div id="bordaInfo" class="item-lista-border"></div>
+                </div>
               </div>
             </div>
           </div>

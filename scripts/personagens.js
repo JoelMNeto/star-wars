@@ -28,10 +28,6 @@ let personagemNome = document.querySelector("#personagemNome");
 
 let imagem = document.querySelector("#personagemImagem");
 
-let altura = document.querySelector("#personagemAltura");
-
-let peso = document.querySelector("#personagemPeso");
-
 let filmes = document.querySelector("#btnInfoFilmes");
 
 let veiculos = document.querySelector("#btnInfoVeiculos");
@@ -164,15 +160,15 @@ function montaBordaItem(textContent) {
 }
 
 async function montaInformacoes(personagem) {
-  await getContent(personagem.films);
+  await getContent(personagem.films, 'films');
 
-  await getContent(personagem.starships);
+  await getContent(personagem.starships, 'starships');
 
-  await getContent(personagem.vehicles);
+  await getContent(personagem.vehicles, 'vehicles');
 
-  await getContent(personagem.species);
+  await getContent(personagem.species, 'species');
 
-  await getContent([personagem.homeworld]);
+  await getContent([personagem.homeworld], 'planets');
 
   let botoes = document.querySelectorAll("li > button");
 
@@ -204,10 +200,6 @@ async function montaInformacoes(personagem) {
   );
 
   imagem.setAttribute("alt", `${personagem.name} imagem`);
-
-  peso.textContent = `${personagem.mass} Kg`;
-
-  altura.textContent = `${personagem.height / 100} m`;
 }
 
 function montaModalRequest(titulo) {
@@ -257,28 +249,37 @@ function montaModalMaisInfo(titulo) {
 
   let li1 = document.createElement("li");
 
-  li1.textContent = `Gender: ${pMaisInfo.gender}`;
+  li1.textContent = `Mass: ${pMaisInfo.mass} Kg`;
 
   let li2 = document.createElement("li");
 
-  li2.textContent = `Hair color: ${pMaisInfo.hair_color}`;
-
+  li2.textContent = `Height: ${pMaisInfo.height}`;
+  
   let li3 = document.createElement("li");
-
-  li3.textContent = `Skin color: ${pMaisInfo.skin_color}`;
-
+  
+  li3.textContent = `Gender: ${pMaisInfo.gender}`;
+  
   let li4 = document.createElement("li");
 
-  li4.textContent = `Eye color: ${pMaisInfo.eye_color}`;
+  li4.textContent = `Hair color: ${pMaisInfo.hair_color}`;
 
   let li5 = document.createElement("li");
 
-  li5.textContent = `Birth year: ${pMaisInfo.birth_year}`;
+  li5.textContent = `Skin color: ${pMaisInfo.skin_color}`;
 
-  modal.append(li1, li2, li3, li4, li5);
+  let li6 = document.createElement("li");
+
+  li6.textContent = `Eye color: ${pMaisInfo.eye_color}`;
+
+  let li7 = document.createElement("li");
+
+  li7.textContent = `Birth year: ${pMaisInfo.birth_year}`;
+
+  modal.append(li1, li2, li3, li4, li5, li6, li7);
+
 }
 
-async function getContent(urls) {
+async function getContent(urls, titulo) {
   if (urls.length <= 0) {
     contentFilmes = [];
     contentEspecies = [];
@@ -288,11 +289,6 @@ async function getContent(urls) {
     
     return;
   }
-
-  let titulo = urls[0].slice(
-    urls[0].indexOf("i/") + 2,
-    urls[0].lastIndexOf("s/") + 1
-  );
 
   conteudo.style.display = "none";
 

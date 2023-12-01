@@ -26,26 +26,6 @@ let fabricanteNave = document.querySelector("#fabricanteNave");
 
 let custoNave = document.querySelector("#custoNave");
 
-let tamanhoNave = document.querySelector("#tamanhoNave");
-
-let velocidadeNave = document.querySelector("#velocidadeNave");
-
-let numPessNave = document.querySelector("#numPessNave");
-
-let capacidadeNave = document.querySelector("#capacidadeNave");
-
-let cargaNave = document.querySelector("#cargaNave");
-
-let capacidadeConsumoNave = document.querySelector(
-  "#capacidadeConsumoNave"
-);
-
-let classeNave = document.querySelector("#classeNave");
-
-let megaLightNave = document.querySelector("#megaLightNave");
-
-let hdClassNave = document.querySelector("#hdClassNave");
-
 conteudo.style.display = "none";
 
 getEspaconaves(listaEspaconaves, listaContainer, carregando);
@@ -161,9 +141,9 @@ function montaBordaItem(textContent) {
 }
 
 async function montaInformacoes(nave) {
-  await getContent(nave.pilots);
+  await getContent(nave.pilots, false);
 
-  await getContent(nave.films);
+  await getContent(nave.films, true);
 
   let botoes = document.querySelectorAll("li > button");
 
@@ -192,24 +172,58 @@ async function montaInformacoes(nave) {
   fabricanteNave.textContent = nave.manufacturer;
 
   custoNave.textContent = nave.cost_in_credits;
+}
 
-  tamanhoNave.textContent = `${nave.length} m`;
+function montaModalMaisInfo() {
+  let naveInfo = content.find(
+    (p) => p.name.toUpperCase() === naveNome.textContent
+  );
 
-  velocidadeNave.textContent = nave.max_atmosphering_speed;
+  let modalTitulo = document.querySelector("#tituloModal");
 
-  numPessNave.textContent = nave.crew;
+  let modal = document.querySelector("#bodyModal");
 
-  capacidadeNave.textContent = nave.passengers;
+  modal.childNodes.forEach((el) => (el.style.display = "none"));
 
-  cargaNave.textContent = `${nave.cargo_capacity} Kg`;
+  modalTitulo.textContent = 'Mais informações';
 
-  capacidadeConsumoNave.textContent = nave.consumables;
+  let li1 = document.createElement("li");
 
-  classeNave.textContent = nave.starship_class;
+  li1.textContent = `Max atmosphering speed: ${naveInfo.max_atmosphering_speed}`;
 
-  megaLightNave.textContent = nave.MGLT;
+  let li2 = document.createElement("li");
 
-  hdClassNave.textContent = nave.hyperdrive_rating;
+  li2.textContent = `Crew: ${naveInfo.crew}`;
+
+  let li3 = document.createElement("li");
+
+  li3.textContent = `Passengers: ${naveInfo.passengers}`;
+
+  let li4 = document.createElement("li");
+
+  li4.textContent = `Cargo capacity: ${naveInfo.cargo_capacity} Kg`;
+  
+  let li5 = document.createElement("li");
+
+  li5.textContent = `Starship class: ${naveInfo.starship_class}`;
+
+  let li6 = document.createElement("li");
+
+  li6.textContent = `Consumables: ${naveInfo.consumables}`;
+
+  let li7 = document.createElement("li");
+
+  li7.textContent = `Length: ${naveInfo.length} m`;
+
+  let li8 = document.createElement("li");
+
+  li8.textContent = `MGLT: ${naveInfo.MGLT}`;
+
+  let li9 = document.createElement("li");
+
+  li9.textContent = `Hyperdrive rating: ${naveInfo.hyperdrive_rating}`;
+
+  modal.append(li1, li2, li3, li4, li5, li6, li7, li8, li9);
 }
 
 function montaModalRequest(titulo) {
@@ -250,15 +264,13 @@ function montaModalRequest(titulo) {
   });
 }
 
-async function getContent(urls) {
+async function getContent(urls, filmes) {
   if (urls.length <= 0) {
     contentFilmes = [];
     contentPilotos = [];
     
     return;
   }
-
-  let filmes = !!urls.find((u) => u.includes('films'));
 
   conteudo.style.display = "none";
 
@@ -322,3 +334,5 @@ adicionaBordaHover(
 adicionaBordaHover("#btnInfoPilotos", "#bordaInfoPilotos", "btn-info-active");
 
 adicionaBordaHover("#btnInfoFilmes", "#bordaInfoFilmes", "btn-info-active");
+
+adicionaBordaHover("#btnInfo", "#bordaInfo", "btn-info-active");

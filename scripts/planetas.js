@@ -20,15 +20,7 @@ let planetas = document.querySelectorAll("ul > li");
 
 let planetaNome = document.querySelector("#planetaNome");
 
-let planetaPeriodoR = document.querySelector("#planetaPeriodoR");
-
-let planetaPeriodoO = document.querySelector("#planetaPeriodoO");
-
-let planetaDiametro = document.querySelector("#planetaDiametro");
-
 let planetaClima = document.querySelector("#planetaClima");
-
-let planetaGravidade = document.querySelector("#planetaGravidade");
 
 let planetaAguaSup = document.querySelector("#planetaAguaSup");
 
@@ -155,9 +147,9 @@ function montaBordaItem(textContent) {
 }
 
 async function montaInformacoes(planeta) {
-  await getContent(planeta.residents);
+  await getContent(planeta.residents, false);
 
-  await getContent(planeta.films);
+  await getContent(planeta.films, true);
 
   let botoes = document.querySelectorAll('li > button');
 
@@ -186,14 +178,6 @@ async function montaInformacoes(planeta) {
   planetaAguaSup.textContent = `${planeta.surface_water}`;
 
   planetaClima.textContent = `${planeta.climate}`;
-
-  planetaDiametro.textContent = `${planeta.diameter} Km`;
-
-  planetaGravidade.textContent = `${planeta.gravity}`;
-
-  planetaPeriodoO.textContent = `${planeta.orbital_period} dias`;
-
-  planetaPeriodoR.textContent = `${planeta.rotation_period} dias`;
 
   planetaPopulacao.textContent = `${planeta.population}`;
 }
@@ -236,15 +220,45 @@ function montaModalRequest(titulo) {
   });
 }
 
-async function getContent(urls) {
+function montaModalMaisInfo() {
+  let planetaInfo = content.find(
+    (p) => p.name.toUpperCase() === planetaNome.textContent
+  );
+
+  let modalTitulo = document.querySelector("#tituloModal");
+
+  let modal = document.querySelector("#bodyModal");
+
+  modal.childNodes.forEach((el) => (el.style.display = "none"));
+
+  modalTitulo.textContent = 'Mais informações';
+
+  let li1 = document.createElement("li");
+
+  li1.textContent = `Gravity: ${planetaInfo.gravity}`;
+
+  let li2 = document.createElement("li");
+
+  li2.textContent = `Rotation period: ${planetaInfo.rotation_period} hs`;
+
+  let li3 = document.createElement("li");
+
+  li3.textContent = `Orbital period: ${planetaInfo.orbital_period} days`;
+
+  let li4 = document.createElement("li");
+
+  li4.textContent = `Diameter: ${planetaInfo.diameter} km`;
+
+  modal.append(li1, li2, li3, li4);
+}
+
+async function getContent(urls, filmes) {
   if (urls.length <= 0) {
     contentFilmes = [];
     contentResidentes = [];
 
     return;
   }
-
-  let filmes = !!urls.find((u) => u.includes('films'));
 
   conteudo.style.display = "none";
 
@@ -312,3 +326,5 @@ adicionaBordaHover(
 );
 
 adicionaBordaHover("#btnInfoFilmes", "#bordaInfoFilmes", "btn-info-active");
+
+adicionaBordaHover("#btnInfo", "#bordaInfo", "btn-info-active");

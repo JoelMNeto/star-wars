@@ -158,65 +158,69 @@
           <div id="conteudoPlanetas" class="content-container">
             <span id="planetaNome" class="titulo-content"></span>
             <div class="informacoes-planetas">
-              <div class="item-informacoes label-value label-value d-flex justify-content-start">
-                <span  class="label-informacoes">Período de rotação:</span>
-                <span id="planetaPeriodoR"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Período da órbita:</span>
-                <span id="planetaPeriodoO"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Diâmetro:</span>
-                <span id="planetaDiametro"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Clima:</span>
-                <span id="planetaClima"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Gravidade:</span>
-                <span id="planetaGravidade"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">Água da superfície:</span>
-                <span id="planetaAguaSup"></span>
-              </div>
-
-              <div class="item-informacoes label-value d-flex justify-content-start">
-                <span class="label-informacoes">População:</span>
-                <span id="planetaPopulacao"></span>
-              </div>
-
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoFilmes"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="montaModalRequest('Filmes')"
+              <div class="row">
+                <div
+                  class="col item-informacoes label-value d-flex justify-content-between"
                 >
-                  Filmes
-                </button>
-                <div id="bordaInfoFilmes" class="item-lista-border"></div>
+                  <span class="label-informacoes">Clima:</span>
+                  <span id="planetaClima"></span>
+                </div>
+  
+                <div
+                  class="col item-informacoes label-value d-flex justify-content-between"
+                >
+                  <span class="label-informacoes">Água:</span>
+                  <span id="planetaAguaSup"></span>
+                </div>
+  
+                <div
+                  class="col item-informacoes label-value d-flex justify-content-between"
+                >
+                  <span class="label-informacoes">População:</span>
+                  <span id="planetaPopulacao"></span>
+                </div>
               </div>
 
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoResidentes"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="montaModalRequest('Residentes')"
-                >
-                  Residentes
-                </button>
-                <div id="bordaInfoResidentes" class="item-lista-border"></div>
+              <div class="row">
+
+                <div class="col item-informacoes">
+                  <button
+                    id="btnInfoFilmes"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Filmes')"
+                  >
+                    Filmes
+                  </button>
+                  <div id="bordaInfoFilmes" class="item-lista-border"></div>
+                </div>
+  
+                <div class="col item-informacoes">
+                  <button
+                    id="btnInfoResidentes"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Residentes')"
+                  >
+                    Residentes
+                  </button>
+                  <div id="bordaInfoResidentes" class="item-lista-border"></div>
+                </div>
+  
+                <div class="col item-informacoes">
+                  <button
+                    id="btnInfo"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalMaisInfo()"
+                  >
+                    Mais informações
+                  </button>
+                  <div id="bordaInfo" class="item-lista-border"></div>
+                </div>
               </div>
             </div>
           </div>

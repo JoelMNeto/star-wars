@@ -112,11 +112,166 @@
     </header>
 
     <main>
+      <div
+        class="t-modal modal fade"
+        id="staticBackdrop"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                id="tituloModal"
+                class="modal-title fs-5"
+                id="staticBackdropLabel"
+              ></h1>
+            </div>
+            <div class="modal-body">
+              <ul id="bodyModal"></ul>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <section
         id="conteudo"
         class="container-conteudo d-flex justify-content-lg-between align-items-center"
       >
-        <div class="conteudo-content"></div>
+        <div class="conteudo-content">
+          <div id="carregandoContent" class="container-content-spinner">
+            <div class="spinner"></div>
+          </div>
+
+          <div id="conteudoFilmes" class="content-container">
+            <span id="filmeTitulo" class="titulo-content"></span>
+            <div class="informacoes-filmes">
+              <div
+                class="item-informacoes label-value label-value d-flex justify-content-between"
+              >
+                <span class="label-informacoes">Episódio:</span>
+                <span id="filmeEpisodio"></span>
+              </div>
+
+              <div
+                class="item-informacoes label-value d-flex justify-content-between"
+              >
+                <span class="label-informacoes">Diretor:</span>
+                <span id="filmeDiretor"></span>
+              </div>
+
+              <div
+                class="item-informacoes label-value d-flex justify-content-between"
+              >
+                <span class="label-informacoes">Lançamento:</span>
+                <span id="filmeData"></span>
+              </div>
+
+              <div class="item-informacoes">
+                <button
+                  id="btnInfoProducao"
+                  class="item-lista-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="producaoModal()"
+                >
+                  Produção
+                </button>
+                <div id="bordaInfoProducao" class="item-lista-border"></div>
+              </div>
+
+              <div class="item-informacoes">
+                <button
+                  id="btnInfoAbertura"
+                  class="item-lista-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="aberturaFilmeModal()"
+                >
+                  Abertura
+                </button>
+                <div id="bordaInfoAbertura" class="item-lista-border"></div>
+              </div>
+
+              <div class="item-informacoes">
+                <button
+                  id="btnInfoPersonagens"
+                  class="item-lista-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="montaModalRequest('Personagens')"
+                >
+                  Personagens
+                </button>
+                <div id="bordaInfoPersonagens" class="item-lista-border"></div>
+              </div>
+
+              <div class="item-informacoes">
+                <button
+                  id="btnInfoPlanetas"
+                  class="item-lista-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="montaModalRequest('Planetas')"
+                >
+                  Planetas
+                </button>
+                <div id="bordaInfoPlanetas" class="item-lista-border"></div>
+              </div>
+
+              <div class="item-informacoes">
+                <button
+                  id="btnInfoNaves"
+                  class="item-lista-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="montaModalRequest('Espaçonaves')"
+                >
+                  Espaçonaves
+                </button>
+                <div id="bordaInfoNaves" class="item-lista-border"></div>
+              </div>
+
+              <div class="item-informacoes">
+                <button
+                  id="btnInfoVeiculos"
+                  class="item-lista-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="montaModalRequest('Veículos')"
+                >
+                  Veículos
+                </button>
+                <div id="bordaInfoVeiculos" class="item-lista-border"></div>
+              </div>
+
+              <div class="item-informacoes">
+                <button
+                  id="btnInfoEspecies"
+                  class="item-lista-btn"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="montaModalRequest('Espécies')"
+                >
+                Espécies
+                </button>
+                <div id="bordaInfoEspecies" class="item-lista-border"></div>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div id="carregando" class="container-spinner">
           <div class="spinner"></div>
@@ -131,11 +286,17 @@
     <footer>
       <section class="rodape">
         <span class="texto-rodape">
-          Desenvolvido por Joel Marçola Neto, João Pedro da Silva Vieira e Gabriel Dellatore Ezequiel
+          Desenvolvido por Joel Marçola Neto, João Pedro da Silva Vieira e
+          Gabriel Dellatore Ezequiel
         </span>
       </section>
     </footer>
 
     <script type="text/javascript" src="../scripts/filmes.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

@@ -1,26 +1,19 @@
 .informacoes-veiculos {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    color: #ffffff;
-    height: 180px !important;
-    width: 100%;
-    gap: 1%;
-    font-size: 12px;
-  }
-  
-  .item-informacoes {
-    height: 20px !important;
-    width: 200px !important;
-    text-align: center;
-  }
-  
-  .label-value {
-      gap: 4%;
-  }
-  
-  .label-informacoes {
-    color: #fdf149d7;
-    text-align: left;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: #ffffff;
+  height: 100%;
+  width: 100%;
+  gap: 30%;
+  font-size: 14px;
+}
+
+.item-informacoes {
+  height: 20px !important;
+  width: 200px !important;
+  text-align: center;
+  margin: 1%;
+}

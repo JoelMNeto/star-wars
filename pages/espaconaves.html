@@ -158,115 +158,70 @@
           <div id="conteudoNaves" class="content-container">
             <span id="naveNome" class="titulo-content"></span>
             <div class="informacoes-naves">
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoFilmes"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="montaModalRequest('Filmes')"
+              <div class="row">
+                <div
+                  class="item-informacoes col label-value label-value d-flex justify-content-between"
                 >
-                  Filmes
-                </button>
-                <div id="bordaInfoFilmes" class="item-lista-border"></div>
-              </div>
-
-              <div class="item-informacoes">
-                <button
-                  id="btnInfoPilotos"
-                  class="item-lista-btn"
-                  data-bs-toggle="modal"
-                  data-bs-target="#staticBackdrop"
-                  onclick="montaModalRequest('Pilotos')"
+                  <span class="label-informacoes">Modelo:</span>
+                  <span id="modeloNave"></span>
+                </div>
+  
+                <div
+                  class="item-informacoes col label-value d-flex justify-content-between"
                 >
-                  Pilotos
-                </button>
-                <div id="bordaInfoPilotos" class="item-lista-border"></div>
+                  <span class="label-informacoes">Fabricante:</span>
+                  <span id="fabricanteNave"></span>
+                </div>
+  
+                <div
+                  class="item-informacoes col label-value d-flex justify-content-between"
+                >
+                  <span class="label-informacoes">Preço:</span>
+                  <span id="custoNave"></span>
+                </div>
               </div>
 
-              <div
-                class="item-informacoes label-value label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Modelo:</span>
-                <span id="modeloNave"></span>
+              <div class="row">
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfoFilmes"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Filmes')"
+                  >
+                    Filmes
+                  </button>
+                  <div id="bordaInfoFilmes" class="item-lista-border"></div>
+                </div>
+  
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfoPilotos"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalRequest('Pilotos')"
+                  >
+                    Pilotos
+                  </button>
+                  <div id="bordaInfoPilotos" class="item-lista-border"></div>
+                </div>
+  
+                <div class="item-informacoes col">
+                  <button
+                    id="btnInfo"
+                    class="item-lista-btn"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                    onclick="montaModalMaisInfo()"
+                  >
+                    Mais informações
+                  </button>
+                  <div id="bordaInfo" class="item-lista-border"></div>
+                </div>
               </div>
 
-              <div
-                class="item-informacoes label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Fabricante:</span>
-                <span id="fabricanteNave"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Preço:</span>
-                <span id="custoNave"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Tamanho da nave:</span>
-                <span id="tamanhoNave"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Velocidade máxima:</span>
-                <span id="velocidadeNave"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Número de pilotos:</span>
-                <span id="numPessNave"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Número de passsageiros:</span>
-                <span id="capacidadeNave"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Carga máxima:</span>
-                <span id="cargaNave"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Tempo de subisistência:</span>
-                <span id="capacidadeConsumoNave"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Classe:</span>
-                <span id="classeNave"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Distância em MGL:</span>
-                <span id="megaLightNave"></span>
-              </div>
-
-              <div
-                class="item-informacoes label-value d-flex justify-content-start"
-              >
-                <span class="label-informacoes">Classe do hiperdrive:</span>
-                <span id="hdClassNave"></span>
-              </div>
             </div>
           </div>
         </div>

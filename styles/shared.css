@@ -150,22 +150,22 @@ body {
   background-color: #00000095;
   border: 1px solid #fdf149d7;
   border-radius: 5px;
-  margin-left: 10vw;
-  min-height: 40vh;
-  max-height: 40vh;
-  min-width: 45vw;
-  max-width: 45vw;
+  margin-left: 5vw;
+  min-height: 45vh;
+  max-height: 45vh;
+  min-width: 50vw;
+  max-width: 50vw;
 }
 
 .content-container {
   display: flex;
   flex-direction: column;
-  height: 40vh;
-  width: 45vw;
+  height: 45vh;
+  width: 50vw;
   justify-content: flex-start;
   align-items: center;
-  padding: 3% 5% 2% 5%;
-  row-gap: 15%;
+  padding: 3% 5% 3% 5%;
+  row-gap: 10%;
 }
 
 .titulo-content {
@@ -189,6 +189,14 @@ body {
 .t-modal .modal-content {
   background-color: #000000;
   color: #ffffff;
+}
+
+.label-value {
+  gap: 4%;
+}
+
+.label-informacoes {
+color: #fdf149d7;
 }
 
 .rodape {
@@ -221,8 +229,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40vh;
-  width: 45vw;
+  height: 45vh;
+  width: 50vw;
 }
 
 .spinner {
