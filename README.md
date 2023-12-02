@@ -1,7 +1,4 @@
 <h1 align="center">
-  <br>
-  <img src="./assets/starWars-logo.png" alt="Alvorecer" width="200">
-  <br>
   Star Wars
 </h1>
 
@@ -13,8 +10,8 @@
 
 ## **Sobre o projeto**
 
-Projeto final da disciplina de Desenvolvimento Web II. 
-<br>
+<h4>Projeto final da disciplina de Desenvolvimento Web II.</h4>
+
 Site desenvolvido consumindo dados da <a href="https://swapi.dev/documentation">swapi</a>, que fornece informações a respeito de cada filme, personagem planeta, veículo, espaçonave e espécie encontrados na franquia Star Wars.
 
 ## **Páginas**
@@ -26,14 +23,17 @@ Site desenvolvido consumindo dados da <a href="https://swapi.dev/documentation">
 - Filmes
 - Espécies
 
-Cada página traz uma lista dos dados retornados pela API e apresenta um card com as informações do item selecionado.
+## **Demonstração**
 
+A página de personagens traz uma lista com todos os personagens da API, e apresenta um card com as principais informações do personagem selecionado.
+<br>
 <div align="center">
   <img src="assets/readme/personagens.png" alt="Página de personagens" width="686">
 </div>
+<br>
 
-Os detalhes de cada informação também podem ser apresentados em um modal.
-
+Os detalhes das informações são mostrados em um modal.
+<br>
 <div align="center">
   <img src="assets/readme/personagensModal.png" alt="Página de personagens" width="686">
 </div>
@@ -49,5 +49,8 @@ Os detalhes de cada informação também podem ser apresentados em um modal.
 </a>
 <a href="https://developer.mozilla.org/pt-BR/docs/Web/javascript">
   <img src="https://skillicons.dev/icons?i=javascript"/>
+</a>
+<a href="https://getbootstrap.com/">
+  <img src="https://skillicons.dev/icons?i=bootstrap"/>
 </a>
 </div>
