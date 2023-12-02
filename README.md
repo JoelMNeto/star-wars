@@ -2,8 +2,6 @@
   Star Wars
 </h1>
 
-<h4 align="center">Status: Em desenvolvimento</h4>
-
 <div align="center">
   <img src="assets/readme/home.png" alt="Início da página" width="686">
 </div>
