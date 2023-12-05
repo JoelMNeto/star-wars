@@ -47,7 +47,7 @@ Os detalhes das informações são mostrados em um modal.
 <br>
 
 <div align="center">
-  <img src="assets/readme/personagensModal.png" alt="Página de personagens" width="686">
+  <img src="assets/readme/personagensModal.png" alt="Modal da página de personagens" width="686">
 </div>
 
 <br>
