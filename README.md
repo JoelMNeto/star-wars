@@ -40,6 +40,7 @@ A página de personagens traz uma lista com todos os personagens da API, e apres
 </div>
 
 <br>
+<br>
 
 Os detalhes das informações são mostrados em um modal.
 
