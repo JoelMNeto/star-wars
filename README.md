@@ -8,7 +8,7 @@
 
 ## **Sobre o projeto**
 
-<h4>Projeto final da disciplina de Desenvolvimento Web II.</h4>
+#### Projeto final da disciplina de Desenvolvimento Web II.
 
 Site desenvolvido consumindo dados da <a href="https://swapi.dev/documentation">swapi</a>, que fornece informações a respeito de cada filme, personagem planeta, veículo, espaçonave e espécie encontrados na franquia Star Wars.
 
