@@ -1,5 +1,5 @@
 <h1 align="center">
-  Star Wars <img align="center" src="assets/readme/ordemJediIcon.png"/> 
+  Star Wars
 </h1>
 
 <br>
